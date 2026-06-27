@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+body {
+background-color: #111;
+user-select: none;
+}
+
+.red {
+  border: 2px red solid !important;
+}
+
+.width {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.checkbox-btn {
+  cursor: pointer;
+  display: block;
+  position: relative;
+  padding-left: 25px;
+  margin-top: 14px;
+  user-select: none;
+}
+
+.checkbox-btn label {
+  cursor: pointer;
+  font-size: 10px;
+}
+
+.checkbox-btn input {
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.2s linear;
+  border: 2px solid white;
+  border-radius: 20px;
+  height: 20px;
+  width: 20px;
+}
+
+.checkbox-btn input:checked ~ .checkmark {
+  background-color: transparent;
+}
+
+.checkmark::after {
+  content: "";
+  top: 40%;
+  left: 50%;
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  width: 14px;
+  height: 10px;
+  border: 2px solid red;
+  transition: 0.2s linear;
+  filter: drop-shadow(0px 0px 10px #fa0060);
+  border-width: 0 2.5px 2.5px 0;
+  transform: translate(-50%, -50%) rotate(-90deg) scale(0.3);
+}
+
+.checkbox-btn input:checked ~ .checkmark::after {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(0deg) scale(1);
+  animation: pulse 1s ease-in;
+}
+
+.checkbox-btn input:checked ~ .checkmark {
+  border: none;
+  transform: rotate(45deg);
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1.6);
+  }
+}
