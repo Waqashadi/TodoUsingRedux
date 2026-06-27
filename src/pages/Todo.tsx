@@ -92,7 +92,7 @@ const Todo = () => {
             id="Add"
             ref={btnRef}
             onClick={add}
-            className="px-6 py-3 border border-gray-500 rounded-lg"
+            className="px-6 py-3 border cursor-pointer uppercase border-gray-500 rounded-lg"
           >
             {" "}
             Add{" "}
