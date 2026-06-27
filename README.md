@@ -1,75 +1,239 @@
-# React + TypeScript + Vite
+# 📝 Todo App using React, Redux Toolkit & TypeScript
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern Todo application built with **React**, **Redux Toolkit**, **TypeScript**, **Tailwind CSS v4**, and **React Toastify**. This project demonstrates state management with Redux, persistent storage using Local Storage, custom animated checkboxes, and a responsive UI.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Features
 
-## React Compiler
+* ✅ Add new todos
+* ✏️ Edit existing todos
+* 🗑️ Delete todos
+* ✔️ Mark todos as completed
+* 💾 Persistent storage using Local Storage
+* 🚫 Prevent duplicate todos
+* 🔍 Minimum character validation
+* ⌨️ Press **Enter** to add a todo
+* 📱 Fully responsive design
+* 🎨 Custom animated checkbox
+* 🔔 Toast notifications
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* React
+* TypeScript
+* Redux Toolkit
+* React Redux
+* Tailwind CSS v4
+* React Toastify
+* UUID
+* React Icons
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📂 Project Structure
 
 ```
+src/
+│
+├── features/
+│   └── slices/
+│       └── TodoSlice.ts
+│
+├── pages/
+│   └── Todo.tsx
+│
+├── store/
+│   └── store.ts
+│
+├── App.tsx
+└── main.tsx
+```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📦 Installation
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Clone the repository
+
+```bash
+git clone <repository-url>
+```
+
+Move into the project directory
+
+```bash
+cd todo-app
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Start the development server
+
+```bash
+npm run dev
+```
+
+---
+
+## 📚 Packages Used
+
+```bash
+npm install @reduxjs/toolkit
+npm install react-redux
+npm install react-toastify
+npm install react-icons
+npm install uuid
+```
+
+TypeScript types
+
+```bash
+npm install -D @types/uuid
+```
+
+---
+
+## ⚙️ Redux Store
+
+The application uses **Redux Toolkit** for global state management.
+
+### State
+
+```ts
+interface TodoItem {
+    id: string;
+    dets: string;
+}
+```
+
+### Actions
+
+* `addTodo`
+* `deleteTodo`
+
+---
+
+## 💾 Local Storage
+
+Todos are automatically saved in Local Storage.
 
 ```
+todos
+```
+
+Completed todos are stored separately.
+
+```
+checkedTodos
+```
+
+This allows the application to persist data even after refreshing the page.
+
+---
+
+## ✨ Functionality
+
+### Add Todo
+
+* Generates a unique UUID
+* Prevents duplicate entries
+* Validates minimum length
+* Shows success notification
+
+### Edit Todo
+
+* Loads the selected todo back into the input field
+* Removes the old todo
+* Allows updating the text
+
+### Delete Todo
+
+* Removes the todo from Redux
+* Updates Local Storage
+* Displays a toast notification
+
+### Complete Todo
+
+* Toggle completion status
+* Animated custom checkbox
+* Line-through styling
+* Saved in Local Storage
+
+---
+
+## ⌨️ Keyboard Support
+
+Press **Enter** while the input field is focused to add a new todo.
+
+---
+
+## 📱 Responsive Design
+
+The UI adapts to different screen sizes using Tailwind CSS.
+
+Examples include:
+
+* Responsive input layout
+* Responsive todo cards
+* Mobile-friendly action buttons
+* Flexible spacing
+
+---
+
+## 🎨 Styling
+
+Custom CSS includes:
+
+* Animated checkbox
+* Pulse animation
+* Dark theme
+* Responsive utilities
+* Custom width helper
+* User selection disabled
+
+---
+
+## 🧠 TypeScript Concepts Used
+
+* Interfaces
+* Type aliases
+* Generic `useState`
+* Typed Redux actions
+* Typed Redux state
+* `PayloadAction`
+* `RootState`
+* Type-only imports
+
+---
+
+## 📸 Preview
+
+* Add Todo
+* Edit Todo
+* Delete Todo
+* Complete Todo
+* Persistent Local Storage
+* Responsive Mobile Layout
+
+---
+
+## 📄 License
+
+This project is open source and available under the MIT License.
+
+---
+
+## 👨‍💻 Author
+
+**Muhammad Waqas (Hadi)**
+
+Frontend Developer
+
+Built with ❤️ using React, Redux Toolkit, TypeScript, and Tailwind CSS.
